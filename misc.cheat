@@ -1,0 +1,17 @@
+% installer
+
+# Add a installer backend to `asdf`
+asdf plugin add <new_plugin>
+
+# Installer a versioned language runtime
+asdf install <plugin> <lang_v_all>
+
+# Set local language versoin
+asdf local <plugin> <lang_v>
+
+# Set global language versoin
+asdf global <plugin> <lang_v>
+
+$ plugin: asdf plugin-list
+$ lang_v: asdf list <plugin>
+$ lang_v_all: asdf list-all <plugin>
