@@ -1,0 +1,4 @@
+% tcp, port
+
+# check whether a TCP port is open
+sudo lsof -nP -iTCP:<port> -sTCP:LISTEN
