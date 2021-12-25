@@ -1,0 +1,58 @@
+% cheat-syntax, example
+
+# support multilin :e
+echo foo
+true \
+   && echo yes \
+   || echo no
+
+# Could declare variable
+git checkout <branch>
+
+$ branch: git branch | awk '{print $NF}'
+
+# support multiple arguments
+cat <jsons>
+
+$ jsons: find . -iname '*.json' -type f -print --- --multi --expand
+
+# prepare variable output
+docker rmi <image_id>
+
+# Even though "false/true" is displayed, this will print "0/1"
+echo <mapped>
+
+$ image_id: docker images --- --column 3 --header-lines 1 --delimiter '\s\s+'
+$ mapped: echo 'false true' | tr ' ' '\n' --- --map "grep -q t && echo 1 || echo 0"
+
+; --- is used to config `fzf` behavior
+; The supported parameters are:
+
+; --column <number>: extracts a single column from the selected result
+; --map <bash_code>: (experimental) applies a map function to the selected variable value
+; --prevent-extra: (experimental) limits the user to select one of the suggestions
+; --fzf-overrides <arg>: (experimental) applies arbitrary fzf overrides
+; --expand: (experimental) converts each line into a separate argument
+; In addition, it's possible to forward the following parameters to fzf:
+
+; --multi
+; --header-lines <number>
+; --delimiter <regex>
+; --query <text>
+; --filter <text>
+; --header <text>
+; --preview <bash_code>
+; --preview-window <text>
+
+# Variable depencency
+echo "<wallpaper_folder>"
+
+$ pictures_folder: echo "/my/pictures"
+$ wallpaper_folder: echo "<pictures_folder>/wallpapers"
+
+; @ could coudl allow import from other cheat
+% cheat-syntax-import
+@ cheat-syntax
+
+# Should print /my/pictures/screenshots
+echo "<pictures_folder>/screenshots"
