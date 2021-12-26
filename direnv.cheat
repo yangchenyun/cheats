@@ -1,0 +1,23 @@
+% path,dir
+
+# Grants direnv to load the given .envrc or .env
+direnv allow <path>
+
+# Revokes the authorization of a given .envrc or .env
+direnv deny <path>
+
+# Opens PATH_TO_RC or the current .envrc or .env into an $EDITOR and allow
+# the file to be loaded afterwards.
+direnv edit <path>
+
+# removes old allowed files
+direnv prune
+
+# triggers an env reload
+direnv reload
+
+# prints some debug status information
+direnv status
+
+# Displays the stdlib available in the .envrc execution context
+direnv stdlib
