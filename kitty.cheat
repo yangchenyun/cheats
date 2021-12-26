@@ -1,0 +1,13 @@
+% term
+
+# Show keyboard event protocol
+kitty +kitten show_key -m kitty
+
+# Debug input, check `text` and `native_code`
+kitty --debug-input
+
+# Find all supported fonts
+kitty list-fonts
+
+# Change themes
+kitty +kitten themes
