@@ -1,0 +1,19 @@
+% blockchain
+
+# To generate and create a keypair
+solana-keygen new
+
+# Set solana validator to use local
+solana config set --url http://localhost:8899
+
+# Check account balance
+solana balance
+
+# Launch solana test validator
+solana-test-validator -r
+
+# Start validator again from genesis
+solana-test-validator -r
+
+# Deploy
+solana program deploy <path_to_program>

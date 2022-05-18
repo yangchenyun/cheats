@@ -1,0 +1,53 @@
+% password
+
+# Generate new pairs of keys
+gpg --full-generate-key
+
+# List all keys from the public keyrings
+gpg --list-keys
+
+# create revocation certificate for primary
+gpg --output <cert_name>.asc --gen-revoke <kid_or_uid>
+
+# export a public key
+gpg --armor --output <key_name>.gpg --export <kid_or_uid>
+
+# import a public key
+gpg --import <key_name>.gpg
+
+# encrypt with one-off passphrase
+gpg --output <file>.gpg -symmetric <file>
+
+# encrypt a file for one or more recipients
+gpg --output <file>.gpg --encrypt --recipient <public_keys> <file>
+
+# decrypt a file
+gpg --output <file> --decrypt <file>.gpg
+
+# sign a document with binary output
+gpg --output <file>.sig --sign <file>
+
+# sign a document with ASCII wrap
+gpg --clearsign <file>
+
+# sign a document with detached sianature
+gpg --output <file>.sig --detach-sig <file>
+
+# verify a detached signature
+gpg --verify <file>.sig <file>
+
+# verify a signature doc
+gpg --output <file> --decrypt <file>.sig
+
+# receive keys
+gpg --keyserver <key_server_url> --recv-key <key_or_uid>
+
+# send keys
+gpg --keyserver <key_server_url> --send-key <key_or_uid>
+
+
+# TODO: search for one or more options in cheats
+# TODO: quote variable value in next variable?
+# TODO: make a one liner to grep <kid_or_uid>
+
+$ file: ls

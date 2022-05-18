@@ -1,0 +1,4 @@
+% crypto, eth
+
+# Generate ECDSA key pairs
+openssl ecparam -name secp256k1 -genkey -noout | openssl ec -text -noout

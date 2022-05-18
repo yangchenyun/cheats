@@ -1,0 +1,7 @@
+% rust
+
+# cargo updates all dependencies
+cargo update
+
+# update one package name
+cargo update -p <package_name>

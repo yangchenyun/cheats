@@ -1,0 +1,16 @@
+% eth
+
+# List installed packages
+brownie pm list
+
+# Copy a package to current foler
+brownie pm clone <all_packages>
+
+# List available networks
+brownie networks list
+
+# Launch console against one network
+brownie console --network <all_networks>
+
+$ all_packages: brownie pm list | rg @
+$ all_networks: brownie networks list | rg ':' | cut -d: -f2
