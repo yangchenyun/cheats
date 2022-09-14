@@ -1,0 +1,67 @@
+% fig
+
+# Google's alias for hg log
+hg xl
+
+# create Piper CL from hg commits
+hg upload chain
+
+# to checkout revisions
+hg update <revision>
+
+# on current branch, pull and rebase
+hg sync
+
+# for all branches, pull and rebase all local changes
+hg sync -all
+
+# drop a local change
+hg revert -r p4base <google3_file_path>
+
+# to update local change to commit
+hg amend
+
+# Rebase current branch
+hg rebase
+
+# Rebase current revision from source to destination
+hg rebase -s <rev> -d <rev>
+
+# checkout next revision with automatical rebase
+hg next
+
+# checkout previous revision with automatical rebase
+hg prev
+
+# update orphan branches onto current one
+hg evolve
+
+# To submit a chain of CLs
+hg submit -r <cl_number>
+
+# Presubmit check
+hg presubmit
+
+# Rollback a CL
+hg cls-rollback -c <cl_number> --reason <reason_to_rollback>
+
+# mark a revision as obsolete
+hg prune <rev>
+
+# Drop a Cl
+hg cls-drop --prune -c <cl_number>
+
+# Automatically detect copies/movies
+hg addremove -similarity 75
+
+# Delete a citc space
+hg citc --delete <citc_client_name>
+
+# Create a new citc space
+hg hgd -f <new_citc_client_name>
+
+# Navigate to the citc space for CL
+cd (hg hgd <cl_number>)
+
+# List all citc clients
+$ citc_client_name: hg citc --list
