@@ -65,3 +65,13 @@ cd (hg hgd <cl_number>)
 
 # List all citc clients
 $ citc_client_name: hg citc --list
+
+# create test account OTA, go/create-otas
+/google/bin/releases/identity-test-account-releases/public/create_user_test_account.par \
+  --env=prod \
+  --new_accounts=1 \
+  --email_prefix="stevetest"
+
+# list test account / OTA, go/list-otas
+stubby --proto2 call blade:identity-testaccount-service-prod \
+TestaccountService.ListTestAccounts 'loas_role: "steveyang"'
