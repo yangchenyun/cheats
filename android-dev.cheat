@@ -1,0 +1,9 @@
+% android, adb
+
+# adb list connected devices
+adb devices
+
+# adb get device properties
+adb -s <device_port> shell getprop
+
+$ device_port: adb devices | rg ":[0-9]{1,5}" | awk -F' ' '{print $1}'
