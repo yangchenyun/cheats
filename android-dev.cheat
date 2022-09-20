@@ -6,4 +6,12 @@ adb devices
 # adb get device properties
 adb -s <device_port> shell getprop
 
+# launch embedded TNG app, for example:
+# - APK package name: com.google.android.googlequicksearchbox
+# - The activity path example: com.google.android.apps.gsa.staticplugins.demos.helloworldapp.intent.IntentActivity
+adb shell am start -n <package_name>/<activity_path>
+
+# Kill the android application
+adb shell am force-stop <package_name>
+
 $ device_port: adb devices | rg ":[0-9]{1,5}" | awk -F' ' '{print $1}'
