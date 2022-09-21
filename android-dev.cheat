@@ -7,11 +7,14 @@ adb devices
 adb -s <device_port> shell getprop
 
 # launch embedded TNG app, for example:
-# - APK package name: com.google.android.googlequicksearchbox
 # - The activity path example: com.google.android.apps.gsa.staticplugins.demos.helloworldapp.intent.IntentActivity
-adb shell am start -n <package_name>/<activity_path>
+adb shell am start -n <agsa_pkg_name>/<activity_path>
 
-# Kill the android application
-adb shell am force-stop <package_name>
+# Kill the AGSA binary
+adb shell am force-stop <agsa_pkg_name>
 
+# Clearing AGSA data
+adb shell pm clear <agsa_pkg_name>
+
+$ agsa_pkg_name: echo "com.google.android.googlequicksearchbox"
 $ device_port: adb devices | rg ":[0-9]{1,5}" | awk -F' ' '{print $1}'
