@@ -3,6 +3,9 @@
 # Google's alias for hg log
 hg xl
 
+# Equivalent of git cp
+hg copy
+
 # create Piper CL from hg commits
 hg upload chain
 
@@ -17,6 +20,9 @@ hg sync -all
 
 # drop a local change
 hg revert -r p4base <google3_file_path>
+
+# select files to commit
+hg commit -i
 
 # to update local change to commit
 hg amend
